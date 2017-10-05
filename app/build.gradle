@@ -23,4 +23,20 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    /**
+     * Webkommunikation
+     */
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+
+    /**
+     * Logger simple, pretty and powerful
+     */
+    compile 'com.orhanobut:logger:2.1.1'
+
+    /**
+     * Serialization
+     */
+
+    compile 'com.google.code.gson:gson:2.8.2'
 }
