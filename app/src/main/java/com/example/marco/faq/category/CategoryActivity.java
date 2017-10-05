@@ -1,6 +1,7 @@
 package com.example.marco.faq.category;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.marco.faq.R;
+import com.example.marco.faq.article.ArticleActivity;
 import com.example.marco.faq.models.Category;
 import com.example.marco.faq.web.WebCommunication;
 import com.google.gson.Gson;
@@ -115,8 +117,18 @@ public class CategoryActivity extends AppCompatActivity implements Callback {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Category category = categories.get(position);
                 Toast.makeText(getApplicationContext(),"clickedOn:"+category.getCategory_title(),Toast.LENGTH_LONG).show();
+                changeToArticleActivity(category);
             }
         });
 
+    }
+
+    public void changeToArticleActivity(Category category){
+        Intent intent = new Intent();
+
+        intent.putExtra("currentCategoryId", category.getCategory_id());
+
+        intent.setClass(this, ArticleActivity.class);
+        startActivity(intent);
     }
 }
