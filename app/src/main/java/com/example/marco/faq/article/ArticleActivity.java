@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.marco.faq.R;
 import com.example.marco.faq.category.CategoryActivity;
+import com.example.marco.faq.detail.DetailActivity;
 import com.example.marco.faq.models.Article;
 import com.example.marco.faq.models.Category;
 import com.example.marco.faq.web.WebCommunication;
@@ -99,7 +100,7 @@ public class ArticleActivity extends AppCompatActivity implements Callback {
             Article article = articles.get(i);
             list.add(article.getQuestion());
         }
-        final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,list);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,list);
         articlelistview.setAdapter(adapter);
 
         articlelistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -107,7 +108,19 @@ public class ArticleActivity extends AppCompatActivity implements Callback {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Article article = articles.get(position);
                 Toast.makeText(getApplicationContext(),"clickedOn:"+article.getQuestion(),Toast.LENGTH_LONG).show();
+                changeToDetailActivity(article);
             }
         });
     }
+
+    public void changeToDetailActivity(Article article){
+        Intent intent = new Intent();
+
+        intent.putExtra("currentArticleId", article.getArticle_id());
+
+        intent.setClass(this,DetailActivity.class);
+        startActivity(intent);
+    }
+
+
 }
