@@ -107,7 +107,6 @@ public class ArticleActivity extends AppCompatActivity implements Callback {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Article article = articles.get(position);
-                Toast.makeText(getApplicationContext(),"clickedOn:"+article.getQuestion(),Toast.LENGTH_LONG).show();
                 changeToDetailActivity(article);
             }
         });

@@ -116,7 +116,6 @@ public class CategoryActivity extends AppCompatActivity implements Callback {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Category category = categories.get(position);
-                Toast.makeText(getApplicationContext(),"clickedOn:"+category.getCategory_title(),Toast.LENGTH_LONG).show();
                 changeToArticleActivity(category);
             }
         });
