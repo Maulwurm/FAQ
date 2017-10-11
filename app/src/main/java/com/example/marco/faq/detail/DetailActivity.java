@@ -119,7 +119,12 @@ public class DetailActivity extends AppCompatActivity implements Callback {
     public void showDetailList(Detail detail){
         questiontextview.setText(detail.getQuestion());
         detailtextview.setText(detail.getAnswer());
-        ratingBar.setRating(Float.valueOf(detail.getField_rest_vote_avg()));
+        try{
+            ratingBar.setRating(Float.valueOf(detail.getField_rest_vote_avg()));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
         allratings.setText("(" + detail.getField_rest_vote_count() + ")");
     }
 }
